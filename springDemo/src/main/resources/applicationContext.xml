@@ -5,10 +5,12 @@
 	xmlns:jee="http://www.springframework.org/schema/jee"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:task="http://www.springframework.org/schema/task"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
-		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
-		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd">
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 		
 	
 	<bean id="pmName" class="org.baali.spring.model.PrimeMinister">
@@ -16,6 +18,13 @@
 	</bean>
 	<bean id="consdemo" class="org.baali.spring.model.ConstructorArgDemo">
 		<constructor-arg value="Balaji. M"></constructor-arg>
+	</bean>
+	<bean id="outerBean" class="org.baali.spring.model.OuterBean">
+		<property name="innerBean" ref="innerBean"></property>
+	</bean>
+	<bean id="innerBean" class="org.baali.spring.model.InnerBean">
+		<property name="id" value="1"></property>
+		<property name="name" value="IN-1"></property>
 	</bean>
 
 
