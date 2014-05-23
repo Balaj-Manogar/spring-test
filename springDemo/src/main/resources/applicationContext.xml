@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:jee="http://www.springframework.org/schema/jee"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:task="http://www.springframework.org/schema/task"
-	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-		
-	
+
+
 	<bean id="pmName" class="org.baali.spring.model.PrimeMinister">
 		<property name="name" value="Narendra Modi" />
 	</bean>
+	<!-- CONSTRUCTOR EXAMPLE -->
 	<bean id="consdemo" class="org.baali.spring.model.ConstructorArgDemo">
 		<constructor-arg value="Balaji. M"></constructor-arg>
 	</bean>
+	<!-- REF EXAMPLE -->
 	<bean id="outerBean" class="org.baali.spring.model.OuterBean">
 		<property name="innerBean" ref="innerBean"></property>
 	</bean>
@@ -26,6 +25,46 @@
 		<property name="id" value="1"></property>
 		<property name="name" value="IN-1"></property>
 	</bean>
+	<!-- OUTER BEAN INNER EXAMPLE -->
+	<bean id="outerBeanInner" class="org.baali.spring.model.OuterBeanInner">
+		<property name="innerBean">
+			<bean class="org.baali.spring.model.InnerBean">
+				<property name="id" value="2" />
+				<property name="name" value="IN-2" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="listOuterBean" class="org.baali.spring.model.Users">
+		<property name="usersList">
+			<list>
+				<bean class="org.baali.spring.model.User">
+					<property name="id" value="1" />
+					<property name="name" value="Balaji. M" />
+				</bean>
+				<bean class="org.baali.spring.model.User">
+					<property name="id" value="2" />
+					<property name="name" value="Boopathi. M" />
+				</bean>
+			</list>
+		</property>
+	</bean>
 
+	<bean id="outerBeanUsers" class="org.baali.spring.model.OuterBeanUsers">
+		<property name="usersList">
+			<list>
+				<ref bean="outerUser1"/>
+				<ref bean="outerUser2"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="outerUser1" class="org.baali.spring.model.User">
+		<property name="id" value="100" />
+		<property name="name" value="Balaji. M" />
+	</bean>
+	<bean id="outerUser2" class="org.baali.spring.model.User">
+		<property name="id" value="101" />
+		<property name="name" value="Monika. B" />
+	</bean>
 
 </beans>
