@@ -6,7 +6,7 @@ public class ConstructorArgDemo
 	public ConstructorArgDemo(String name)
 	{
 		this.name = name;
-		System.out.println("Hi " + this.name);		
+		System.out.println("From Constructor Bean... Hi " + this.name);		
 	}
 
 }

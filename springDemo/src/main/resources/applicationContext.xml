@@ -72,6 +72,16 @@
 		<property name="name" value="Balaji. M" />
 		<property name="id" value="101" />
 	</bean>
+	<!-- Singleton scope ( default ) -->
+	<bean id="singletonScope1" class="org.baali.spring.model.SpringSingletonScope" scope="singleton">
+		<property name="name" value="Balaji. M" />
+		<property name="id" value="101" />
+	</bean>
+	<bean id="prototypeScope" class="org.baali.spring.model.SpringPrototypeScope" scope="prototype">
+		<property name="name" value="Balaji. M" />
+		<property name="id" value="101" />
+	</bean>
+	
 	
 	
 	
