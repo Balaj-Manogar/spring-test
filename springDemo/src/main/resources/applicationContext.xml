@@ -48,7 +48,7 @@
 			</list>
 		</property>
 	</bean>
-
+	<!-- OUTER BEAN LIST INNER EXAMPLE -->
 	<bean id="outerBeanUsers" class="org.baali.spring.model.OuterBeanUsers">
 		<property name="usersList">
 			<list>
@@ -66,5 +66,13 @@
 		<property name="id" value="101" />
 		<property name="name" value="Monika. B" />
 	</bean>
-
+	<!-- auto wire by name -->
+	<bean id="autoWireByName" class="org.baali.spring.model.SpringAutoWireByName" autowire="byName" />
+	<bean id="user" class="org.baali.spring.model.User">
+		<property name="name" value="Balaji. M" />
+		<property name="id" value="101" />
+	</bean>
+	
+	
+	
 </beans>
