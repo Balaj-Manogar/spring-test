@@ -77,12 +77,17 @@
 		<property name="name" value="Balaji. M" />
 		<property name="id" value="101" />
 	</bean>
+	<!-- Prototype scope -->
 	<bean id="prototypeScope" class="org.baali.spring.model.SpringPrototypeScope" scope="prototype">
 		<property name="name" value="Balaji. M" />
 		<property name="id" value="101" />
 	</bean>
-	
-	
-	
-	
+	<!-- Bean init and destroy Interface type -->
+	<bean id="init1" class="org.baali.spring.model.InitAndDestroyMethodClassLevel">
+		<property name="name" value="Revathy" />
+	</bean>
+	<!-- Bean init and destroy xml Attribute type -->
+	<bean id="init2" class="org.baali.spring.model.InitAndDestroyXML" init-method="afterPropertiesSet" destroy-method="destroy">
+		<property name="name" value="Balaji. Ma" />
+	</bean>
 </beans>
