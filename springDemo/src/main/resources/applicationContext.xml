@@ -90,4 +90,12 @@
 	<bean id="init2" class="org.baali.spring.model.InitAndDestroyXML" init-method="afterPropertiesSet" destroy-method="destroy">
 		<property name="name" value="Balaji. Ma" />
 	</bean>
+	<!-- Read values from properties file -->
+	<bean id="propBean" class="org.baali.spring.model.PropertiesBeanFactoryPostProcessor">
+		<property name="name" value="${prop.name}"></property>
+	</bean>
+	<!-- Default spring class to Read values from properties file -->
+	<bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+		<property name="locations" value="spring-data.properties" />
+	</bean>
 </beans>
